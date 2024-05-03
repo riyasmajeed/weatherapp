@@ -11,9 +11,9 @@ class WeatherForecast {
 
   factory WeatherForecast.fromJson(Map<String, dynamic> json) {
     return WeatherForecast(
-      day: json['dt_txt'] != null ? json['dt_txt'].toString().substring(0, 10) : '',
-      condition: json['weather'][0]['description'],
-      temperature: "${(json['main']['temp'] - 273.15).toStringAsFixed(1)}°C",
+      day: json['day'] != null ? json['day'].toString().substring(0, 10) : '',
+      condition: json['condition'] ?? '',
+      temperature: json['temperature'] ?? '',
     );
   }
 }
